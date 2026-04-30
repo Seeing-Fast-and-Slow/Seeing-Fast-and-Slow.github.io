@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Primary Meta Tags -->
+  <!-- TODO: Replace with your paper title and author names -->
+  <!-- <meta name="title" content="PAPER_TITLE - AUTHOR_NAMES"> -->
+  <!-- TODO: Write a compelling 150-160 character description of your research -->
+  <!-- <meta name="description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS"> -->
+  <!-- TODO: Add 5-10 relevant keywords for your research area -->
+  <!-- <meta name="keywords" content="KEYWORD1, KEYWORD2, KEYWORD3, machine learning, computer vision, AI"> -->
+  <!-- TODO: List all authors -->
+  <!-- <meta name="author" content="FIRST_AUTHOR_NAME, SECOND_AUTHOR_NAME"> -->
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  
+  <!-- Open Graph / Facebook -->
+  <!-- <meta property="og:type" content="article"> -->
+  <!-- TODO: Replace with your institution or lab name -->
+  <!-- <meta property="og:site_name" content="INSTITUTION_OR_LAB_NAME"> -->
+  <!-- TODO: Same as paper title above -->
+  <!-- <meta property="og:title" content="PAPER_TITLE"> -->
+  <!-- TODO: Same as description above -->
+  <!-- <meta property="og:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS"> -->
+  <!-- TODO: Replace with your actual website URL -->
+  <!-- <meta property="og:url" content="https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE"> -->
+  <!-- TODO: Create a 1200x630px preview image and update path -->
+  <!-- <meta property="og:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png"> -->
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="PAPER_TITLE - Research Preview">
+  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
+  <meta property="article:author" content="FIRST_AUTHOR_NAME">
+  <meta property="article:section" content="Research">
+  <meta property="article:tag" content="KEYWORD1">
+  <meta property="article:tag" content="KEYWORD2">
+
+  <!-- Twitter -->
+  <!-- <meta name="twitter:card" content="summary_large_image"> -->
+  <!-- TODO: Replace with your lab/institution Twitter handle -->
+  <!-- <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE"> -->
+  <!-- TODO: Replace with first author's Twitter handle -->
+  <!-- <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE"> -->
+  <!-- TODO: Same as paper title above -->
+  <!-- <meta name="twitter:title" content="PAPER_TITLE"> -->
+  <!-- TODO: Same as description above -->
+  <!-- <meta name="twitter:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS"> -->
+  <!-- TODO: Same as social preview image above -->
+  <!-- <meta name="twitter:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png"> -->
+  <!-- <meta name="twitter:image:alt" content="PAPER_TITLE - Research Preview"> -->
+
+  <!-- Academic/Research Specific -->
+  <meta name="citation_title" content="PAPER_TITLE">
+  <meta name="citation_author" content="FIRST_AUTHOR_LAST, FIRST_AUTHOR_FIRST">
+  <meta name="citation_author" content="SECOND_AUTHOR_LAST, SECOND_AUTHOR_FIRST">
+  <meta name="citation_publication_date" content="2024">
+  <meta name="citation_conference_title" content="CONFERENCE_NAME">
+  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">
+  
+  <!-- Additional SEO -->
+	  <meta name="theme-color" content="#1d4f91">
+	  <meta name="msapplication-TileColor" content="#1d4f91">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://documentcloud.adobe.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+
+  <!-- TODO: Replace with your paper title and authors -->
+  <title>Seeing Fast and Slow: Learning the Flow of Time in Videos - Anonymous Authors | Academic Research</title>
+  
+  <!-- Favicon and App Icons -->
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="apple-touch-icon" href="static/images/favicon.ico">
+  
+  <!-- Critical CSS - Load synchronously -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  
+  <!-- Non-critical CSS - Load asynchronously -->
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+  <!-- Fallback for browsers that don't support preload -->
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+  
+	  <!-- Fonts - Optimized loading -->
+	  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+	  <style>
+	    html { font-size: 16px; text-rendering: optimizeLegibility; }
+	    body { font-family: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif; font-weight: 400; line-height: 1.55; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-kerning: normal; }
+	    .title, .publication-title { font-family: "Fraunces", Georgia, serif; font-weight: 700; letter-spacing: -0.03em; line-height: 1.04; }
+	    .subtitle { font-weight: 450; letter-spacing: -0.01em; line-height: 1.45; }
+	    .publication-authors, .author-block { font-weight: 500; }
+	    .button { font-family: "Manrope", ui-sans-serif, system-ui, sans-serif; font-weight: 700; letter-spacing: -0.01em; }
+	  </style>
+	  
+	  <!-- Defer non-critical JavaScript -->
+	  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+  <script defer src="static/js/video_comparison.js"></script>
+
+  <!-- Structured Data for Academic Papers -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "PAPER_TITLE",
+    "description": "BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS",
+    "author": [
+      {
+        "@type": "Person",
+        "name": "FIRST_AUTHOR_NAME",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "INSTITUTION_NAME"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "SECOND_AUTHOR_NAME",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "INSTITUTION_NAME"
+        }
+      }
+    ],
+    "datePublished": "2024-01-01",
+    "publisher": {
+      "@type": "Organization",
+      "name": "CONFERENCE_OR_JOURNAL_NAME"
+    },
+    "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
+    "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
+    "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
+    "abstract": "FULL_ABSTRACT_TEXT_HERE",
+    "citation": "BIBTEX_CITATION_HERE",
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "mainEntity": {
+      "@type": "WebPage",
+      "@id": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "RESEARCH_AREA_1"
+      },
+      {
+        "@type": "Thing", 
+        "name": "RESEARCH_AREA_2"
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Website/Organization Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "INSTITUTION_OR_LAB_NAME",
+    "url": "https://YOUR_INSTITUTION_WEBSITE.com",
+    "logo": "https://YOUR_DOMAIN.com/static/images/favicon.ico",
+    "sameAs": [
+      "https://twitter.com/YOUR_TWITTER_HANDLE",
+      "https://github.com/YOUR_GITHUB_USERNAME"
+    ]
+  }
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize all carousels on the page
+      const carousels = bulmaCarousel.attach('.results-carousel', {
+        autoplay: false,  // stop built-in auto-advance
+        loop: true        // optional: cycle back to first video
+      });
+
+      // For each carousel instance
+      carousels.forEach(carousel => {
+        // Find all videos inside this carousel's container
+        const videos = carousel.element.querySelectorAll('video');
+
+        videos.forEach(video => {
+          video.addEventListener('ended', () => {
+            // Go to next slide in THIS carousel only
+            carousel.next();
+          });
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- More Works Dropdown -->
+  <!-- <div class="more-works-container">
+    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
+      <i class="fas fa-flask"></i>
+      More Works
+      <i class="fas fa-chevron-down dropdown-arrow"></i>
+    </button>
+    <div class="more-works-dropdown" id="moreWorksDropdown">
+      <div class="dropdown-header">
+        <h4>More Works from Our Lab</h4>
+        <button class="close-btn" onclick="toggleMoreWorks()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="works-list"> -->
+        <!-- TODO: Replace with your lab's related works -->
+        <!-- <a href="https://arxiv.org/abs/PAPER_ID_1" class="work-item" target="_blank">
+          <div class="work-info"> -->
+            <!-- TODO: Replace with actual paper title -->
+            <!-- <h5>Paper Title 1</h5> -->
+            <!-- TODO: Replace with brief description -->
+            <!-- <p>Brief description of the work and its main contribution.</p> -->
+            <!-- TODO: Replace with venue and year -->
+            <!-- <span class="work-venue">Conference/Journal 2024</span>
+          </div>
+          <i class="fas fa-external-link-alt"></i>
+        </a> -->
+        <!-- TODO: Add more related works or remove extra items -->
+        <!-- <a href="https://arxiv.org/abs/PAPER_ID_2" class="work-item" target="_blank">
+          <div class="work-info">
+            <h5>Paper Title 2</h5>
+            <p>Brief description of the work and its main contribution.</p>
+            <span class="work-venue">Conference/Journal 2023</span>
+          </div>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+        <a href="https://arxiv.org/abs/PAPER_ID_3" class="work-item" target="_blank">
+          <div class="work-info">
+            <h5>Paper Title 3</h5>
+            <p>Brief description of the work and its main contribution.</p>
+            <span class="work-venue">Conference/Journal 2023</span>
+          </div>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+      </div>
+    </div>
+  </div> -->
+
+  <main id="main-content">
+  <section class="hero" style="position: relative; overflow: hidden; height: 600px;">
+        <video autoplay muted loop playsinline style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 115%; object-fit: cover; z-index: 0; opacity: 0.6;">
+      <source src="assets/grid_8x5.mp4" type="video/mp4">
+    </video>
+    <div class="hero-body" style="position: relative; z-index: 1; height: 100%; display: flex; align-items: center;">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title" style="text-shadow: 0 0 8px #fff, 0 0 16px #fff, 0 0 30px #fff;">Seeing Fast and Slow:<br>Learning the Flow of Time in Videos</h1>
+            <div class="is-size-5 publication-authors" style="text-shadow: 0 0 8px #fff, 0 0 16px #fff, 0 0 30px #fff; font-weight: 400; color: black;">
+              <!-- TODO: Replace with your paper authors and their personal links -->
+              <span class="author-block"><a href="https://www.csie.ntu.edu.tw/~b09902097/yensiangwu/" target="_blank">Yen-Siang Wu</a><sup>1,2</sup></span>
+              <span class="author-block"><a href="https://red-fairy.github.io/" target="_blank">Rundong Luo</a><sup>1</sup></span>
+              <span class="author-block"><a href="https://jingsenzhu.github.io/" target="_blank">Jingsen Zhu</a><sup>1</sup></span>
+              <span class="author-block"><a href="https://ttaoretw.github.io/" target="_blank">Tao Tu</a><sup>1</sup></span>
+              <span class="author-block"><a href="https://homes.cs.washington.edu/~ali/" target="_blank">Ali Farhadi</a><sup>3</sup></span>
+              <br>
+              <span class="author-block"><a href="https://mattwallingford.github.io/" target="_blank">Matthew Wallingford</a><sup>3</sup></span>
+              <span class="author-block"><a href="https://vllab.ee.ntu.edu.tw/ycwang.html" target="_blank">Yu-Chiang Frank Wang</a><sup>2</sup></span>
+              <span class="author-block"><a href="https://www.cs.cornell.edu/~srm/" target="_blank">Steve Marschner</a><sup>1</sup></span>
+              <span class="author-block"><a href="https://www.cs.cornell.edu/~weichiu/" target="_blank">Wei-Chiu Ma</a><sup>1</sup></span>
+            </div>
+
+	            <div class="is-size-5 publication-authors" style="text-shadow: 0 0 8px #fff, 0 0 16px #fff, 0 0 30px #fff; font-weight: 400; color: black;">
+	              <!-- TODO: Replace with your institution and conference/journal info -->
+	              <span class="author-block"><sup>1</sup>Cornell University</span>
+	              <span class="author-block"><sup>2</sup>National Taiwan University</span>
+	              <span class="author-block"><sup>3</sup>University of Washington</span>
+	              <!-- TODO: Remove this line if no equal contribution -->
+	              <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
+	            </div>
+
+	            <div class="publication-links">
+	              <span class="link-block">
+	                <a href="https://arxiv.org/abs/2604.21931" target="_blank" rel="noopener noreferrer" class="external-link button is-normal is-rounded is-dark">
+	                <!-- <a href="" target="_blank" class="external-link button is-normal is-rounded is-dark"> -->
+	                  <span class="icon">
+	                    <i class="fas fa-file-pdf"></i>
+	                  </span>
+	                  <span>Paper</span>
+	                </a>
+	              </span>
+	              <span class="link-block">
+	                <a href="https://github.com/Seeing-Fast-and-Slow/Seeing-Fast-and-Slow.github.io" target="_blank" rel="noopener noreferrer" class="external-link button is-normal is-rounded is-dark">
+	                  <span class="icon">
+	                    <i class="fab fa-github"></i>
+	                  </span>
+	                  <span>Code</span>
+	                </a>
+	              </span>
+	              <span class="link-block">
+	                <a href="https://huggingface.co/datasets/james020619/SloMo-44K/tree/main" target="_blank" rel="noopener noreferrer" class="external-link button is-normal is-rounded is-dark">
+	                  <span class="icon">
+	                    <i class="fas fa-database"></i>
+	                  </span>
+	                  <span>Dataset</span>
+	                </a>
+	              </span>
+	              <span class="link-block">
+	                <a href="speed_guess_game.html" class="external-link button is-normal is-rounded game-link-button" style="background: linear-gradient(135deg, #c97934 0%, #d9954e 100%); color: white; border: none;" target="_blank">
+	                  <span class="icon">
+	                    <i class="fas fa-gamepad"></i>
+	                  </span>
+	                  <span>Speed-Guess Game</span>
+	                </a>
+	              </span>
+	            </div>
+
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+    </div>
+  </section>
+
+
+<!-- Teaser video-->
+<section class="hero teaser is-light">
+  <!-- <div class="container is-max-desktop"> -->
+  <div class="container">
+    <div class="hero-body">
+      <!-- TODO: Replace with your teaser video -->
+      <div class="box">
+        <video poster="" id="tree" autoplay muted loop height="100%" preload="metadata">
+          <!-- TODO: Add your video file path here -->
+          <source src="static/videos/teaser.mp4" type="video/mp4">
+        </video>
+      </div>
+      <!-- TODO: Replace with your video description -->
+      <!-- <h2 class="subtitle has-text-centered"> -->
+      <!-- <h2 class="subtitle">
+        We develop models towards <b>perceiving and manipulating the flow of time</b>, including <b>(a) speed–change detection</b>, which locates moments where playback speed shifts; <b>(b) video speed estimation</b>, which infers how much a video has been sped up or slowed down; <b>(c) temporal super-resolution</b>, converting low-FPS, blurry videos into their high-FPS, clear counterparts; and <b>(d) speed-conditioned video generation</b>, synthesizing the same event at user-specified temporal speeds. Together, these capabilities demonstrate fine-grained temporal perception and controllable video generation.
+        We develop models towards <b>perceiving and manipulating the flow of time</b>, including <b>(a) speed–change detection</b>, which locates moments where playback speed shifts; <b>(b) video speed estimation</b>, which infers how much a video has been sped up or slowed down; <b>(c) temporal super-resolution</b>, converting low-FPS, blurry videos into their high-FPS, clear counterparts; and <b>(d) speed-conditioned video generation</b>, synthesizing the same event at user-specified temporal speeds. Together, these capabilities demonstrate fine-grained temporal perception and controllable video generation.
+      </h2> -->
+      <p class="subtitle">
+        This project explores how to <b>perceive and manipulate the flow of time</b> in videos through four complementary tasks:
+      </p>
+      <div class="subtitle content">
+        <ul>
+          <li><b>Speed-change detection</b> locates the exact moments when playback speed shifts.</li>
+          <li><b>Video speed estimation</b> infers how much a video has been sped up or slowed down.</li>
+          <li><b>Extreme Temporal super-resolution</b> converts low-FPS, blurry videos into high-FPS, clear counterparts.</li>
+          <li><b>Speed-conditioned video generation</b> synthesizes the same event at user-specified temporal speeds.</li>
+        </ul>
+      </div>
+      <p class="subtitle">
+        Together, these capabilities highlight fine-grained temporal perception alongside controllable video generation.
+      </p>
+      <hr style="border: none; border-top: 1px solid var(--border-color); margin: 2rem 0;">
+      <p class="subtitle">
+        We also introduce <a href="#dataset-carousel" style="text-decoration: underline;"><b>SloMo-44K</b></a>, the largest generic slow-motion video dataset to date. It consists of <b>44,632</b> slow-motion videos, each ranging from 5 seconds to several minutes in duration, totaling approximately <b>167 hours</b> and <b>18 million frames</b>. The dataset is collected from YouTube, Vimeo, and Flickr, covering a wide variety of scenarios and motion patterns recorded using high-speed cameras.
+      </p>
+      <div class="columns is-centered has-text-centered" style="margin: 1.5rem 0;">
+        <div class="column is-narrow" style="background: var(--background-accent); border-radius: var(--border-radius); padding: 1.2rem 2rem; margin: 0 0.5rem;">
+          <p style="font-size: 2rem; font-weight: 800; color: var(--primary-color); margin: 0;">44,632</p>
+          <p style="color: var(--text-secondary); margin: 0;">slow-motion videos</p>
+        </div>
+        <div class="column is-narrow" style="background: var(--background-accent); border-radius: var(--border-radius); padding: 1.2rem 2rem; margin: 0 0.5rem;">
+          <p style="font-size: 2rem; font-weight: 800; color: var(--primary-color); margin: 0;">167 hrs</p>
+          <p style="color: var(--text-secondary); margin: 0;">total duration</p>
+        </div>
+        <div class="column is-narrow" style="background: var(--background-accent); border-radius: var(--border-radius); padding: 1.2rem 2rem; margin: 0 0.5rem;">
+          <p style="font-size: 2rem; font-weight: 800; color: var(--primary-color); margin: 0;">18M</p>
+          <p style="color: var(--text-secondary); margin: 0;">frames</p>
+        </div>
+      </div>
+      <hr style="border: none; border-top: 1px solid var(--border-color); margin: 2rem 0;">
+            <div class="column has-text-centered">
+              <!-- <div class="publication-links"> -->
+                <!-- TODO: Update with your arXiv paper ID -->
+                <!-- <span class="link-block">
+                  <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span> -->
+
+                <!-- TODO: Add your supplementary material PDF or remove this section -->
+                <!-- <span class="link-block">
+                  <a href="static/pdfs/supplementary_material.pdf" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Supplementary</span>
+                  </a>
+                </span> -->
+
+                <!-- TODO: Replace with your GitHub repository URL -->
+                <!-- <span class="link-block">
+                  <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span> -->
+
+                <!-- TODO: Update with your arXiv paper ID -->
+                <!-- <span class="link-block">
+                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span> -->
+
+                <!-- TODO: Replace with your GitHub repository URL -->
+                <span class="link-block">
+                  <a href="#spectrogram-carousel"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span>Speed-Change Detection</span>
+                  </a>
+                </span>
+
+                <!-- TODO: Replace with your GitHub repository URL -->
+                <span class="link-block">
+                  <a href="#ssl-carousel"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span>Video Speed Estimation</span>
+                  </a>
+                </span>
+
+                <!-- TODO: Replace with your GitHub repository URL -->
+                <span class="link-block">
+                  <a href="#dataset-carousel"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span>Our SloMo-44K Dataset</span>
+                  </a>
+                </span>
+                <br>
+                <!-- TODO: Replace with your GitHub repository URL -->
+                <span class="link-block">
+                  <a href="#i2v-carousel"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span>Speed-conditioned Video Generation</span>
+                  </a>
+                </span>
+
+                <!-- TODO: Replace with your GitHub repository URL -->
+                <span class="link-block">
+                  <a href="#tsr-carousel"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span>Temporal Super-Resolution</span>
+                  </a>
+                </span>
+              </div>
+    </div>
+  </div>
+</section>
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+  <!-- <div class="container"> -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <!-- TODO: Replace with your paper abstract -->
+          <p>
+            How can we tell whether a video has been sped up or slowed down? How can we generate videos at different speeds? Although videos have been central to modern computer vision research, little attention has been paid to perceiving and controlling the passage of time. In this paper, we study time as a learnable visual concept and develop models for reasoning about and manipulating the flow of time in videos.<br><br>We first exploit the multimodal cues and temporal structure naturally present in videos to learn, in a self-supervised manner, to detect speed changes and estimate playback speed. We then show that these learned temporal reasoning models enable us to curate the largest slow-motion video dataset to date from noisy in-the-wild sources. Finally, using this rich, diverse data, we develop models capable of temporal control, including speed-conditioned video generation, which produces motion at specified playback rates, and temporal super-resolution, which transforms low-FPS, blurry videos into high-FPS sequences with fine-grained temporal details. Our findings highlight time as a manipulable, perceptual dimension in video learning, opening doors to temporally controllable video generation, temporal forensics detection, and potentially richer world-models that understand how events unfold over time.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!-- Video carousel -->
+<section id="spectrogram-carousel" class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">
+            Learning to Detect Temporal Speed Changes — Leveraging the Principle of Time-Frequency Scaling
+            <br>
+          </h2>
+          <div style="width: 95%; margin: auto; font-size: 1.1rem;">
+            To collect speed-change training samples efficiently, we leverage cues encoded in audio of videos. Specifically, for videos with original audio tracks (i.e., not muted, dubbed or overlaid with background music), speeding up the video results in a higher pitch, and vice versa when slowing it down. These salient audio cues (pitch shift) allow us to locate speed-change events accurately and scalably, laying a foundation for training a speed-change detector.
+          </div>
+          <div class="columns is-centered" style="margin: 30px 0px -20px 0px;">
+            <span class="volume-prompt" style="font-size: 1.1rem; text-align: center; color: #ac5ce7;">🔊 Turn the volume on!<br>⚠️ Audio is only for collecting training samples; the final detector is purely visual!</span>
+          </div>
+          <div id="results-carousel-spectrogram" class="carousel results-carousel">
+            <div class="item item-video1">
+              <!-- TODO: Add poster image for better preview -->
+              <video poster="" id="video1" controls loop height="100%" preload="metadata">
+                <!-- Your video file here -->
+                <source src="static/videos/spectr1.mp4" type="video/mp4">
+              </video>
+            </div>
+            <!-- <div class="item item-video2"> -->
+              <!-- TODO: Add poster image for better preview -->
+              <!-- <video poster="" id="video2" controls loop height="100%" preload="metadata"> -->
+                <!-- Your video file here -->
+                <!-- <source src="static/videos/spectr2.mp4" type="video/mp4"> -->
+              <!-- </video> -->
+            <!-- </div> -->
+            <div class="item item-video3">
+              <!-- TODO: Add poster image for better preview -->
+              <video poster="" id="video3" controls loop height="100%" preload="metadata">
+                <!-- Your video file here -->
+                <source src="static/videos/spectr3.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video4">
+              <!-- TODO: Add poster image for better preview -->
+              <video poster="" id="video4" controls loop height="100%" preload="metadata">
+                <!-- Your video file here -->
+                <source src="static/videos/spectr4.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video5">
+              <!-- TODO: Add poster image for better preview -->
+              <video poster="" id="video5" controls loop height="100%" preload="metadata">
+                <!-- Your video file here -->
+                <source src="static/videos/spectr5.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Learning to Detect Temporal Speed Changes — Applying Speed Change Detector to X-men Kitchen Scene</h2>
+          <div style="width: 95%; margin: auto; font-size: 1.1rem;">
+            By training on this speed-change data, we build a detector sensitive to temporal speed changes. When applied to the iconic <em>X-men</em> kitchen scene, it successfully identifies the time-freeze moments.
+          </div>
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item item-video1">
+              <!-- TODO: Add poster image for better preview -->
+              <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
+                <!-- Your video file here -->
+                <source src="static/videos/xmen0.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video2">
+              <!-- TODO: Add poster image for better preview -->
+              <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
+                <!-- Your video file here -->
+                <source src="static/videos/xmen1.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+<!-- Video carousel -->
+<section id="ssl-carousel" class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Learning to Infer the Speed of Time — Leveraging the Equivariance of Speed Estimation</h2>
+          <div style="width: 95%; margin: auto; font-size: 1.1rem;">
+            Since there is no speed-labeled dataset for supervised learning, we introduce a self-supervised method to infer playback speed along with an iterative prediction approach to enhance model predictions.
+          </div>
+          <div class="item horizontal-items">
+            <!-- TODO: Replace with your research result images -->
+            <div style="width: 50%;">
+              <div style="text-align: center; width: 100%; margin: 0rem auto 1rem; font-size: 1.1rem;">
+                Training
+              </div>
+              <img src="static/images/ssl.png" alt="Iterative prediction visualization" loading="lazy"/>
+              <!-- TODO: Replace with description of this result -->
+              <!-- <div style="width: 100%; margin: 1rem auto;"> -->
+              <div style="text-align: left; width: 100%; margin: 1rem auto; font-size: 1rem;">
+                Our key insight is that the speed estimation model should be <em>equivariant</em> to temporal resampling, i.e., if we speed up a video by a factor of k, the predicted speed should scale by k. By enforcing this proportional relationship between the model’s input and output, we can transform temporal resampling into a powerful self-supervised training signal.
+              </div>
+            </div>
+            <div style="width: 50%; border-left: 2px dotted #000;">
+              <div style="text-align: center; width: 100%; margin: 0rem auto 1rem; font-size: 1.1rem;">
+                Inference
+              </div>
+              <img src="static/videos/IP.gif" alt="Iterative prediction visualization" loading="lazy"/>
+              <!-- TODO: Replace with description of this result -->
+              <div style="text-align: left; width: 100%; margin: 1rem auto; font-size: 1rem;">
+                During initial inference, the model tends to underestimate the speeds of extremely slow videos. We hypothesize that this is because the motion differences in ultra-slow videos are often too subtle to be detected. To mitigate the issue, we adjust the speeds of these videos, bringing them closer to normal speed based on the previous estimates. This allows the model to produce more precise predictions in the subsequent iterations.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Learning to Infer the Speed of Time — Applying Speed Estimator to Slow-Motion Videos</h2>
+          <div style="width: 95%; margin: auto; font-size: 1.1rem;">
+            Using these two techniques, we can reliably predict a video's playback speed.
+          </div>
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item item-video1">
+              <!-- TODO: Add poster image for better preview -->
+              <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
+                <!-- Your video file here -->
+                <source src="static/videos/speed1.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video2">
+              <!-- TODO: Add poster image for better preview -->
+              <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
+                <!-- Your video file here -->
+                <source src="static/videos/speed2.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video3">
+              <!-- TODO: Add poster image for better preview -->
+              <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
+                <!-- Your video file here -->
+                <source src="static/videos/speed3.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video4">
+              <!-- TODO: Add poster image for better preview -->
+              <video poster="" id="video4" controls muted loop height="100%" preload="metadata">
+                <!-- Your video file here -->
+                <source src="static/videos/speed4.mp4" type="video/mp4">
+              </video>
+            </div>
+            <!-- <div class="item item-video5"> -->
+              <!-- TODO: Add poster image for better preview -->
+              <!-- <video poster="" id="video5" controls muted loop height="100%" preload="metadata"> -->
+                <!-- Your video file here -->
+                <!-- <source src="static/videos/speed5.mp4" type="video/mp4"> -->
+              <!-- </video> -->
+            <!-- </div> -->
+            <div class="item item-video6">
+              <!-- TODO: Add poster image for better preview -->
+              <video poster="" id="video6" controls muted loop height="100%" preload="metadata">
+                <!-- Your video file here -->
+                <source src="static/videos/speed6.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+<!-- Video carousel -->
+<section id="speed-guess-game" class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Learning to Infer the Speed of Time — The Speed-Guess Game</h2>
+          <div style="width: 95%; margin: auto; font-size: 1.1rem;">
+            To better appreciate the difficulty in estimating playback speed, we encourage you to try the interactive Speed-Guess Game below.
+          </div>
+          <div class="columns is-centered" style="margin: 0px 0px 0px 0px;">
+            <a href="speed_guess_game.html" 
+              class="cta-button" 
+              target="_blank">
+                Try the Speed-Guess Game
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+
+<!-- Video carousel -->
+<section id="dataset-carousel" class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">The SloMo-44K Dataset</h2>
+          <div style="width: 95%; margin: auto; font-size: 1.1rem;">
+            The ability to detect speed changes and infer the speed of time not only helps models perceive the flow of time, but also serves as valuable tools for transforming in-the-wild slow-motion videos into a speed-annotated dataset, <em>SloMo-44K</em>. This dataset encompasses a wide range of real-world scenes, motion types, and playback speeds. Below are several sample videos from the dataset.
+          </div>
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item item-video1">
+              <!-- TODO: Add poster image for better preview -->
+              <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
+                <!-- Your video file here -->
+                <source src="static/videos/dataset1.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video2">
+              <!-- TODO: Add poster image for better preview -->
+              <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
+                <!-- Your video file here -->
+                <source src="static/videos/dataset2.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video3">
+              <!-- TODO: Add poster image for better preview -->
+              <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
+                <!-- Your video file here -->
+                <source src="static/videos/dataset3.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video4">
+              <!-- TODO: Add poster image for better preview -->
+              <video poster="" id="video4" controls muted loop height="100%" preload="metadata">
+                <!-- Your video file here -->
+                <source src="static/videos/dataset4.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video5">
+              <!-- TODO: Add poster image for better preview -->
+              <video poster="" id="video5" controls muted loop height="100%" preload="metadata">
+                <!-- Your video file here -->
+                <source src="static/videos/dataset5.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video6">
+              <!-- TODO: Add poster image for better preview -->
+              <video poster="" id="video6" controls muted loop height="100%" preload="metadata">
+                <!-- Your video file here -->
+                <source src="static/videos/dataset6.mp4" type="video/mp4">
+              </video>
+            </div>
+            <!-- <div class="item item-video7"> -->
+              <!-- TODO: Add poster image for better preview -->
+              <!-- <video poster="" id="video7" controls muted loop height="100%" preload="metadata"> -->
+                <!-- Your video file here -->
+                <!-- <source src="static/videos/dataset7.mp4" type="video/mp4"> -->
+              <!-- </video> -->
+            <!-- </div> -->
+            <!-- <div class="item item-video8"> -->
+              <!-- TODO: Add poster image for better preview -->
+              <!-- <video poster="" id="video8" controls muted loop height="100%" preload="metadata"> -->
+                <!-- Your video file here -->
+                <!-- <source src="static/videos/dataset8.mp4" type="video/mp4"> -->
+              <!-- </video> -->
+            <!-- </div> -->
+            <div class="item item-video9">
+              <!-- TODO: Add poster image for better preview -->
+              <video poster="" id="video9" controls muted loop height="100%" preload="metadata">
+                <!-- Your video file here -->
+                <source src="static/videos/dataset9.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video10">
+              <!-- TODO: Add poster image for better preview -->
+              <video poster="" id="video10" controls muted loop height="100%" preload="metadata">
+                <!-- Your video file here -->
+                <source src="static/videos/dataset10.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video11">
+              <!-- TODO: Add poster image for better preview -->
+              <video poster="" id="video11" controls muted loop height="100%" preload="metadata">
+                <!-- Your video file here -->
+                <source src="static/videos/dataset11.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video12">
+              <!-- TODO: Add poster image for better preview -->
+              <video poster="" id="video12" controls muted loop height="100%" preload="metadata">
+                <!-- Your video file here -->
+                <source src="static/videos/dataset12.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video13">
+              <!-- TODO: Add poster image for better preview -->
+              <video poster="" id="video13" controls muted loop height="100%" preload="metadata">
+                <!-- Your video file here -->
+                <source src="static/videos/dataset13.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video14">
+              <!-- TODO: Add poster image for better preview -->
+              <video poster="" id="video14" controls muted loop height="100%" preload="metadata">
+                <!-- Your video file here -->
+                <source src="static/videos/dataset14.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+<!-- Video carousel -->
+<section id="i2v-carousel" class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Downstream Task: Speed-conditioned Video Generation</h2>
+          <div style="width: 95%; margin: auto; font-size: 1.1rem;">
+            The <em>SloMo-44K</em> dataset enables a novel downstream task: speed-conditioned video generation. This task extends image-to-video generation by incorporating an additional speed condition that controls the playback rate of the generated videos. This allows users to generate content at a desired temporal granularity to observe real-world motion from specific perspectives. In contrast, the base model always produces videos at a similar speed, regardless of the text prompts.
+          </div>
+          <div id="results-carousel" class="carousel results-carousel i2v">
+            <div class="item item-video1">
+              <video poster="" id="video1" muted loop height="100%" preload="metadata">
+                <source src="static/videos/i2v3.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video2">
+              <!-- TODO: Add poster image for better preview -->
+              <video poster="" id="video2" muted loop height="100%" preload="metadata">
+                <!-- Your video file here -->
+                <source src="static/videos/i2v2.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video3">
+              <!-- TODO: Add poster image for better preview -->
+              <video poster="" id="video3" muted loop height="100%" preload="metadata">
+                <!-- Your video file here -->
+                <source src="static/videos/i2v1.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video4">
+              <!-- TODO: Add poster image for better preview -->
+              <video poster="" id="video4" muted loop height="100%" preload="metadata">
+                <!-- Your video file here -->
+                <source src="static/videos/i2v4.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video5">
+              <!-- TODO: Add poster image for better preview -->
+              <video poster="" id="video5" muted loop height="100%" preload="metadata">
+                <!-- Your video file here -->
+                <source src="static/videos/i2v5.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video6">
+              <!-- TODO: Add poster image for better preview -->
+              <video poster="" id="video6" muted loop height="100%" preload="metadata">
+                <!-- Your video file here -->
+                <source src="static/videos/i2v6.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+          <div style="width: 95%; margin: auto; font-size: 1.1rem;">
+            We demonstrate that speed-conditioned video generation is only possible when the model is trained on a slow-motion dataset that captures authentic real-world dynamics. In contrast, models trained solely on standard-FPS videos with artificially applied slowdowns fail to produce smooth, realistic motion and instead exhibit the same stuttering artifacts introduced by slowing down standard-FPS footage.
+          </div>
+          <div id="results-carousel" class="carousel results-carousel i2v">
+            <div class="item item-video1">
+              <video poster="" id="video1" muted loop height="100%" preload="metadata">
+                <source src="static/videos/slomo_1.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video2">
+              <!-- TODO: Add poster image for better preview -->
+              <video poster="" id="video2" muted loop height="100%" preload="metadata">
+                <!-- Your video file here -->
+                <source src="static/videos/slomo_2.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video3">
+              <!-- TODO: Add poster image for better preview -->
+              <video poster="" id="video3" muted loop height="100%" preload="metadata">
+                <!-- Your video file here -->
+                <source src="static/videos/slomo_3.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video4">
+              <!-- TODO: Add poster image for better preview -->
+              <video poster="" id="video4" muted loop height="100%" preload="metadata">
+                <!-- Your video file here -->
+                <source src="static/videos/slomo_4.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video5">
+              <!-- TODO: Add poster image for better preview -->
+              <video poster="" id="video5" muted loop height="100%" preload="metadata">
+                <!-- Your video file here -->
+                <source src="static/videos/slomo_5.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+<!-- Video carousel -->
+<section id="tsr-carousel" class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Downstream Task: Video-to-Slow-Motion Generation</h2>
+          <div style="width: 95%; margin: auto; font-size: 1.1rem;">
+            To show the potential of our <em>SloMo-44K</em> dataset, we train a model on this dataset to convert low-frame-rate, synthetically motion-blurred videos into sharp, high-frame-rate footage. Unlike conventional temporal super-resolution, our approach accounts for the strong motion blur in real low-frame-rate footage. As a result, our model can generate natural slow-motion videos that closely resemble footage captured by a high-speed camera.
+          </div>
+          <div class="columns is-centered" style="margin: 30px 0px -20px 0px;">
+            <div class="comparison-toolbar">
+              <div class="model-group ours-group">
+                <span class="group-tag">Left</span>
+                <div class="ours-buttons-container">
+                  <button class="baseline-buttons btn-primary is-active">Ours</button>
+                </div>
+              </div>
+
+              <div class="vs-indicator">vs</div>
+
+              <div class="model-group baselines-group">
+                <span class="group-tag">Right (Baseline)</span>
+                <div class="baseline-buttons-container">
+                  <button class="baseline-buttons is-active"
+                          onclick="switchVideoBaseline('FILM', this)">
+                    FILM
+                  </button>
+                  <button class="baseline-buttons"
+                          onclick="switchVideoBaseline('Wan', this)">
+                    Wan
+                  </button>
+                  <button class="baseline-buttons"
+                          onclick="switchVideoBaseline('LDMVFI', this)">
+                    LDMVFI
+                  </button>
+                  <button class="baseline-buttons"
+                          onclick="switchVideoBaseline('GI', this)" style="font-size: 14px;">
+                    Generative-Inbetweening
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item item-video1">
+              <div class="video-comparison">
+                <video class="beforeVideo" src="static/videos/tsr1/1_FILM.mp4" autoplay loop muted preload="metadata"></video>
+                <div class="clipper">
+                  <video class="afterVideo" src="static/videos/tsr1/1_Ours.mp4" autoplay loop muted></video>
+                </div>
+              </div>
+            </div>
+            <div class="item item-video2">
+              <div class="video-comparison">
+                <video class="beforeVideo" src="static/videos/tsr1/2_FILM.mp4" autoplay loop muted preload="metadata"></video>
+                <div class="clipper">
+                  <video class="afterVideo" src="static/videos/tsr1/2_Ours.mp4" autoplay loop muted></video>
+                </div>
+              </div>
+            </div>
+            <div class="item item-video3">
+              <div class="video-comparison">
+                <video class="beforeVideo" src="static/videos/tsr1/3_FILM.mp4" autoplay loop muted preload="metadata"></video>
+                <div class="clipper">
+                  <video class="afterVideo" src="static/videos/tsr1/3_Ours.mp4" autoplay loop muted></video>
+                </div>
+              </div>
+            </div>
+            <div class="item item-video4">
+              <div class="video-comparison">
+                <video class="beforeVideo" src="static/videos/tsr1/4_FILM.mp4" autoplay loop muted preload="metadata"></video>
+                <div class="clipper">
+                  <video class="afterVideo" src="static/videos/tsr1/4_Ours.mp4" autoplay loop muted></video>
+                </div>
+              </div>
+            </div>
+            <div class="item item-video5">
+              <div class="video-comparison">
+                <video class="beforeVideo" src="static/videos/tsr2/1_FILM.mp4" autoplay loop muted preload="metadata"></video>
+                <div class="clipper">
+                  <video class="afterVideo" src="static/videos/tsr2/1_Ours.mp4" autoplay loop muted></video>
+                </div>
+              </div>
+            </div>
+            <div class="item item-video6">
+              <div class="video-comparison">
+                <video class="beforeVideo" src="static/videos/tsr2/2_FILM.mp4" autoplay loop muted preload="metadata"></video>
+                <div class="clipper">
+                  <video class="afterVideo" src="static/videos/tsr2/2_Ours.mp4" autoplay loop muted></video>
+                </div>
+              </div>
+            </div>
+            <div class="item item-video7">
+              <div class="video-comparison">
+                <video class="beforeVideo" src="static/videos/tsr2/3_FILM.mp4" autoplay loop muted preload="metadata"></video>
+                <div class="clipper">
+                  <video class="afterVideo" src="static/videos/tsr2/3_Ours.mp4" autoplay loop muted></video>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+
+
+<!-- Video carousel -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Downstream Task: Conventional Temporal Super-Resolution</h2>
+          <div style="width: 95%; margin: auto; font-size: 1.1rem;">
+            The diversity, scale, and slow-motion content of <em>SloMo-44K</em> also benefit conventional temporal super-resolution. We further train an 8× temporal super-resolution model, which generates videos with smoother and more natural motion dynamics compared to existing approaches.
+          </div>
+          <div class="columns is-centered" style="margin: 30px 0px -20px 0px;">
+            <div class="comparison-toolbar">
+              <div class="model-group ours-group">
+                <span class="group-tag">Left</span>
+                <div class="ours-buttons-container">
+                  <button class="baseline-buttons btn-primary is-active">Ours</button>
+                </div>
+              </div>
+
+              <div class="vs-indicator">vs</div>
+
+              <div class="model-group baselines-group">
+                <span class="group-tag">Right (Baseline)</span>
+                <div class="baseline-buttons-container">
+                  <button class="baseline-buttons is-active"
+                          onclick="switchVideoBaseline('FILM', this)">
+                    FILM
+                  </button>
+                  <button class="baseline-buttons"
+                          onclick="switchVideoBaseline('Wan', this)">
+                    Wan
+                  </button>
+                  <button class="baseline-buttons"
+                          onclick="switchVideoBaseline('LDMVFI', this)">
+                    LDMVFI
+                  </button>
+                  <button class="baseline-buttons"
+                          onclick="switchVideoBaseline('GI', this)" style="font-size: 14px;">
+                    Generative-Inbetweening
+                  </button>
+                  <button class="baseline-buttons"
+                          onclick="switchVideoBaseline('GT', this)">
+                    Ground Truth
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item item-video1">
+              <div class="video-comparison">
+                <video class="beforeVideo" src="static/videos/tsr3/1_FILM.mp4" autoplay loop muted preload="metadata"></video>
+                <div class="clipper">
+                  <video class="afterVideo" src="static/videos/tsr3/1_Ours.mp4" autoplay loop muted></video>
+                </div>
+              </div>
+            </div>
+            <div class="item item-video2">
+              <div class="video-comparison">
+                <video class="beforeVideo" src="static/videos/tsr3/2_FILM.mp4" autoplay loop muted preload="metadata"></video>
+                <div class="clipper">
+                  <video class="afterVideo" src="static/videos/tsr3/2_Ours.mp4" autoplay loop muted></video>
+                </div>
+              </div>
+            </div>
+            <div class="item item-video3">
+              <div class="video-comparison">
+                <video class="beforeVideo" src="static/videos/tsr4/1_FILM.mp4" autoplay loop muted preload="metadata"></video>
+                <div class="clipper">
+                  <video class="afterVideo" src="static/videos/tsr4/1_Ours.mp4" autoplay loop muted></video>
+                </div>
+              </div>
+            </div>
+            <div class="item item-video4">
+              <div class="video-comparison">
+                <video class="beforeVideo" src="static/videos/tsr4/2_FILM.mp4" autoplay loop muted preload="metadata"></video>
+                <div class="clipper">
+                  <video class="afterVideo" src="static/videos/tsr4/2_Ours.mp4" autoplay loop muted></video>
+                </div>
+              </div>
+            </div>
+            <div class="item item-video5">
+              <div class="video-comparison">
+                <video class="beforeVideo" src="static/videos/tsr4/3_FILM.mp4" autoplay loop muted preload="metadata"></video>
+                <div class="clipper">
+                  <video class="afterVideo" src="static/videos/tsr4/3_Ours.mp4" autoplay loop muted></video>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+
+
+<!-- Paper poster -->
+<!-- <section class="hero is-small"> -->
+  <!-- <div class="hero-body"> -->
+    <!-- <div class="container"> -->
+      <!-- <h2 class="title">Poster</h2> -->
+
+      <!-- TODO: Replace with your poster PDF -->
+      <!-- <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
+      </iframe> -->
+        
+    <!-- </div> -->
+  <!-- </div> -->
+<!-- </section> -->
+<!--End paper poster -->
+
+
+
+<!--BibTex citation -->
+  <section class="section hero is-small" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <div class="bibtex-header">
+        <h2 class="title">BibTeX</h2>
+        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+          <i class="fas fa-copy"></i>
+          <span class="copy-text">Copy</span>
+        </button>
+      </div>
+      <pre id="bibtex-code"><code>@article{wu2026seeingfastslowlearning,
+  title={Seeing Fast and Slow: Learning the Flow of Time in Videos}, 
+  author={Wu, Yen-Siang and Luo, Rundong and Zhu, Jingsen and Tu, Tao and Farhadi, Ali and Wallingford, Matthew and Wang, Yu-Chiang Frank and Marschner, Steve and Ma, Wei-Chiu},
+  journal={arXiv:2604.21931},
+  year={2026},
+  url={https://arxiv.org/abs/2604.21931}
+}</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+<!-- <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const video = document.getElementById('tree');
+    if (video) {
+      video.addEventListener('loadeddata', function() {
+        video.style.background = 'none';
+      });
+    }
+  });
+</script> -->
+
+  </body>
+  </html>

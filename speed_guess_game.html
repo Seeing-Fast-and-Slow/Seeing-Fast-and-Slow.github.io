@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>Slow-Motion Speed Guess Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --ink: #1e2430;
+        --muted: #5f6777;
+        --soft: #8f97a8;
+        --paper: #fffdf9;
+        --paper-strong: rgba(255,255,255,0.92);
+        --sand: #f2ece4;
+        --mist: #edf2f7;
+        --line: #ddd6cc;
+        --accent: #2d5a88;
+        --accent-deep: #1d3f64;
+        --accent-warm: #c97e32;
+        --success: #3d8f5c;
+        --shadow: 0 24px 48px -28px rgba(17, 24, 39, 0.35);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        background:
+            radial-gradient(circle at top left, rgba(201, 126, 50, 0.12), transparent 24%),
+            radial-gradient(circle at top right, rgba(45, 90, 136, 0.12), transparent 28%),
+            linear-gradient(180deg, #f8f4ee 0%, #eef2f6 100%);
+        color: var(--ink);
+        line-height: 1.6;
+    }
+    .container { max-width: 1400px; margin: 0 auto; padding: 28px 22px 36px; }
+
+    .panel {
+        background: var(--paper-strong);
+        border: 1px solid rgba(221, 214, 204, 0.95);
+        border-radius: 24px;
+        padding: 34px;
+        box-shadow: var(--shadow);
+        margin-top: 30px;
+        backdrop-filter: blur(8px);
+    }
+
+    #instructions h1 {
+        color: var(--ink);
+        font-family: 'Fraunces', Georgia, serif;
+        font-size: 2.35em;
+        line-height: 1.08;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .instruction-content { max-width: 900px; margin: 0 auto; font-size: 1.05em; }
+    .instruction-content p { margin-top: 12px; }
+    .start-section { margin-top: 30px; padding-top: 24px; border-top: 1px solid var(--line); }
+    .button-group { display: flex; justify-content: center; gap: 16px; margin-top: 16px; }
+    .btn {
+        padding: 12px 28px; border: none; border-radius: 999px; cursor: pointer; font-size: 1em;
+        font-family: inherit; font-weight: 700; letter-spacing: -0.01em;
+        transition: background 0.25s, transform 0.05s, box-shadow 0.25s;
+        box-shadow: 0 12px 22px -18px rgba(17, 24, 39, 0.6);
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn-primary { background: linear-gradient(135deg, #c97e32, #d99752); color: #fff; }
+    .btn-primary:hover { background: linear-gradient(135deg, #b96f25, #cb8843); }
+    .btn-blue { background: linear-gradient(135deg, #2d5a88, #4475a7); color: #fff; }
+    .btn-blue:hover { background: linear-gradient(135deg, #23496f, #386894); }
+    .btn-grey { background: #9e9e9e; color: #fff; }
+    .btn-grey:hover { background: #7e7e7e; }
+    .btn-neutral { background: linear-gradient(135deg, #66768a, #7e8ea0); color: #fff; }
+    .btn-neutral:hover { background: linear-gradient(135deg, #586779, #6d7f92); }
+    .btn-green { background: linear-gradient(135deg, #3d8f5c, #4da56d); color: #fff; }
+    .btn-green:hover { background: linear-gradient(135deg, #32784d, #438e60); }
+    .btn-orange { background: linear-gradient(135deg, #c97e32, #d99752); color: #fff; }
+    .btn-orange:hover { background: linear-gradient(135deg, #b96f25, #cb8843); }
+
+    .file-wrap { margin: 16px auto; text-align: center; }
+    .file-label {
+        display: inline-block; padding: 10px 24px; background: #ff9800; color: #fff;
+        border-radius: 6px; cursor: pointer;
+    }
+    .file-label:hover { background: #f57c00; }
+    input[type="file"] { display: none; }
+    .file-status { margin-top: 8px; color: var(--muted); font-style: italic; }
+
+    .trial-header { text-align: center; margin-bottom: 20px; }
+    .trial-header h2 { color: var(--ink); font-family: 'Fraunces', Georgia, serif; font-size: 1.7em; }
+    .progress { margin-top: 10px; color: var(--muted); }
+
+    .video-wrap { margin: 20px auto; max-width: 1000px; }
+    video {
+        width: 80%; height: 400px; border: 1px solid rgba(221, 214, 204, 0.95); border-radius: 18px; background: #fff; display: block; margin: 0 auto;
+        object-fit: cover;
+        box-shadow: var(--shadow);
+    }
+    
+    .video-error {
+        padding: 20px; background: #fee; color: #c00; border: 1px solid #fcc;
+        border-radius: 6px; text-align: center; margin: 10px 0;
+    }
+
+    .video-controls {
+        background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(237,242,247,0.78));
+        padding: 18px;
+        border-radius: 18px;
+        margin: 18px 0;
+        border: 1px solid rgba(221, 214, 204, 0.95);
+        box-shadow: 0 16px 34px -28px rgba(17, 24, 39, 0.5);
+    }
+    .playback-controls { display: flex; justify-content: center; gap: 12px; margin-bottom: 14px; }
+
+    .speed-row { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 10px; }
+    .speed-label { color: var(--muted); font-weight: 600; }
+    .speed-value-tag {
+        font-weight: 700;
+        color: var(--accent-deep);
+        background: rgba(255,255,255,0.82);
+        border: 1px solid rgba(221, 214, 204, 0.95);
+        padding: 8px 12px; border-radius: 999px;
+        min-width: 64px; text-align: center; display: inline-block;
+    }
+    .speed-warning {
+        color: #ff6b00; font-size: 0.9em; margin-top: 8px; text-align: center;
+        font-style: italic;
+    }
+    .speed-input-help {
+        color: var(--muted); font-size: 0.9em; margin-top: 8px; text-align: center;
+        font-style: italic;
+    }
+    input[type="range"] {
+        width: 80%; height: 8px; appearance: none; background: linear-gradient(90deg, rgba(201,126,50,0.25), rgba(45,90,136,0.35)); border-radius: 999px; outline: none;
+        flex-grow: 1;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+        appearance: none; width: 18px; height: 18px; background: var(--accent); border-radius: 50%; cursor: pointer;
+        border: 2px solid #fff;
+        box-shadow: 0 4px 12px rgba(29, 63, 100, 0.35);
+    }
+    input[type="range"]::-moz-range-thumb {
+        width: 18px; height: 18px; background: var(--accent); border: none; border-radius: 50%; cursor: pointer;
+    }
+
+    .decision-row { display: flex; justify-content: center; gap: 14px; margin-top: 14px; flex-wrap: wrap; }
+    .selected { box-shadow: 0 0 0 3px rgba(76,175,80,0.35); transform: scale(1.02); border: 2px solid #4CAF50; }
+
+    .actions-row {
+        display: flex; justify-content: space-between; align-items: center;
+        background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(242,236,228,0.72)); border-radius: 18px; padding: 14px; margin-top: 16px;
+        border: 1px solid rgba(221, 214, 204, 0.95);
+    }
+    .nav { display: flex; justify-content: space-between; gap: 10px; width: 100%; }
+    /* .nav { display: flex; gap: 10px; } */
+    .save-status { color: var(--success); font-weight: 600; }
+    .storage-warning { color: #ff6b00; font-size: 0.9em; margin-left: 10px; }
+
+    #completion h2 { color: var(--ink); font-family: 'Fraunces', Georgia, serif; font-size: 2em; text-align: center; margin-bottom: 14px;}
+    .completion-stats { background: #f9f9f9; border-radius: 16px; padding: 16px; margin: 18px 0; }
+
+    .slider-row {
+        display: flex;
+        align-items: center;
+        gap: 12px; /* space between items */
+    }
+    
+    /* Full-screen overlay */
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.7); /* semi-transparent background */
+        display: none; /* hidden by default */
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    /* Content box */
+    .overlay-content {
+        background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(242,236,228,0.88));
+        padding: 30px 40px;
+        border-radius: 20px;
+        text-align: center;
+        max-width: 420px;
+        width: 80%;
+        border: 1px solid rgba(221, 214, 204, 0.95);
+        box-shadow: var(--shadow);
+    }
+
+    /* Line rows */
+    .overlay-line {
+        display: flex;
+        justify-content: space-between;
+        margin: 12px 0;
+        font-size: 18px;
+        font-weight: 500;      /* less plain */
+    }
+
+    .label {
+        color: var(--muted);
+    }
+
+    .value {
+        font-weight: 600;
+        /* color: #0077ee; */
+        padding-left: 10px;
+    }
+
+    /* Close button */
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 35px;
+        color: #f9f9f9;
+        font-size: 42px;
+        cursor: pointer;
+    }
+
+    /* Continue button */
+    .continue-btn {
+        margin-top: 28px;
+        padding: 12px 24px;
+        background: linear-gradient(135deg, #66768a, #7e8ea0);
+        color: white;
+        border: none;
+        border-radius: 999px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+
+    .continue-btn:hover {
+        background: linear-gradient(135deg, #586779, #6d7f92);
+    }
+    @media (max-width: 900px) {
+        .panel { padding: 24px 18px; }
+        video { width: 100%; height: 280px; }
+        .nav { gap: 8px; }
+    }
+</style>
+</head>
+<body>
+<div class="container">
+
+    <!-- Instructions -->
+    <div id="instructions" class="panel">
+        <h1>Slow-Motion Speed Guess Game</h1>
+        <div class="instruction-content">
+            <p>
+                <strong>Important Notes</strong><br>
+                • Please make sure you're using <strong>Chrome</strong><br>
+            </p>
+            <p>
+                <strong>Overview: Test Your Temporal Perception</strong><br>
+                This game challenges your ability to estimate video speed and compare your performance against our model.
+                You will be presented with short video clips playing at various slow-motion speeds.
+                Your task is to use the preview slider to determine the precise speed factor that restores the clip to its true, real-time speed.
+            </p>
+            <p>
+                <strong>How to Complete Each Trial</strong><br>
+                1. Watch the video.<br>
+                2. Adjust the preview slider to experiment with different speeds<br>
+                2. Based on your observation, find the speed factor that makes the clip appear at normal speed.<br>
+                3. Click <strong>"I think the video appears at normal speed now"</strong> to see how well your estimation is!<br>
+            </p>
+        </div>
+        <div class="start-section">
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="startStudy()">Start</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trials -->
+
+    <div id="trial-0" class="panel" style="display:none;">
+        <div class="trial-header">
+            <h2 id="trial-title-0">Video 1 of 5</h2>
+        </div>
+
+        <div class="video-wrap">
+            <div id="video-error-0" class="video-error" style="display:none;">
+                ⚠️ Error loading video. Please check the video file or contact the administrator.
+            </div>
+            <!-- muted+playsinline to avoid autoplay/gesture issues; loop for instant replay -->
+            <video id="video-0" muted playsinline preload="auto" loop>
+                <source src="" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="video-controls">
+            <div class="playback-controls">
+                <button id="play-btn-0" class="btn btn-blue" onclick="togglePlay(0)">▶ Play</button>
+                <button id="restart-btn-0" class="btn btn-neutral" onclick="restartVideo(0)">⏱ Restart</button>
+            </div>
+
+            <div class="speed-row">
+                <div>
+                    <!-- <div class="speed-label">Preview Speed:</div> -->
+                    <div class="slider-row">
+                        <div class="speed-value-tag">Slower</div>
+                        <input id="speed-slider-0" type="range" min="1.0" max="16.0" step="0.1"
+                            value="1.0" oninput="onSpeedChange(0, this.value)">
+                        <div class="speed-value-tag">Faster</div>
+                    </div>
+                </div>
+                <!-- <div class="speed-value-tag" id="speed-value-0">1.0×</div> -->
+            </div>
+            
+            <div style="text-align: center;">
+                <div class="speed-input-help">
+                    Move the slider until the video appears to play at normal speed
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="decision-row">
+            <button id="done-btn-0" class="btn btn-green" onclick="markDone(0)">Done</button>
+        </div> -->
+
+        <div class="actions-row">
+            <div class="nav">
+                <!-- <button id="prev-btn-0" class="btn btn-neutral" onclick="prevTrial(0)" disabled>← Previous</button> -->
+                <button id="prev-btn-0" class="btn btn-neutral" onclick="prevTrial(0)">← Previous</button>
+                <button id="done-btn-0" class="btn btn-green" onclick="markDone(0)">I think the video appears at normal speed now</button>
+                <button id="next-btn-0" class="btn btn-neutral" onclick="nextTrial(0)">Next →</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="completion" class="panel" style="display:none;">
+        <h2>End of Game!</h2>
+    </div>
+    <div id="result-overlay" class="overlay">
+    <!-- <div class="overlay-content">
+        <span class="close-btn" onclick="closeOverlay()">&times;</span>
+        <p id="overlay-text"></p>
+    </div> -->
+    <div class="overlay-content">
+        <div id="overlay-text"></div>
+        <button class="continue-btn" onclick="closeOverlay()">Continue</button>
+    </div>
+</div>
+</div> <!-- /.container -->
+
+<script>
+/* ===== Browser detection and capabilities ===== */
+function getMaxPlaybackRate() {
+    const ua = navigator.userAgent.toLowerCase();
+    if (ua.indexOf('safari') > -1 && ua.indexOf('chrome') === -1) {
+        return 2.0;  // Safari
+    }
+    return 16.0;  // Chrome, Edge, Firefox
+}
+
+const maxSpeed = getMaxPlaybackRate();
+
+/* ===== Study config ===== */
+const trials = [
+  {
+    "true_speed": "0.075",
+    "our_speed": "0.073",
+    "video_path": "bee.mp4"
+  },
+  {
+    "true_speed": "0.1",
+    "our_speed": "0.09",
+    "video_path": "tides.mp4"
+  },
+  {
+    "true_speed": "0.25",
+    "our_speed": "0.21",
+    "video_path": "hummingbird.mp4"
+  },
+  {
+    "true_speed": "0.10",
+    "our_speed": "0.12",
+    "video_path": "waterfall.mp4"
+  },
+  {
+    "true_speed": "0.05",
+    "our_speed": "0.05",
+    "video_path": "drinking.mp4"
+  },
+  {
+    "true_speed": "0.2",
+    "our_speed": "0.2",
+    "video_path": "martial.mp4"
+  },
+];
+const totalTrials = trials.length;
+
+/* ===== State ===== */
+let current = 0;        // current trial index
+let videoStates = {};  // index -> { isPlaying:boolean, speed:number, inputValue:number|null }
+
+function initVideoStates(i) {
+    for (let i = 0; i < totalTrials; i++) {
+        videoStates[i] = { isPlaying: false, speed: 1.0, inputValue: null };
+    }
+}
+
+function ensureVideoState(i) {
+    if (!videoStates[i]) videoStates[i] = { isPlaying:false, speed:1.0, inputValue:null };
+    return videoStates[i];
+}
+
+/* ===== UI helpers ===== */
+function setPlayButton(i, playing) {
+    const btn = document.getElementById(`play-btn-0`);
+    if (!btn) return;
+    if (playing) {
+        btn.textContent = '⏸ Stop';
+        btn.classList.add('playing');
+    } else {
+        btn.textContent = '▶ Play';
+        btn.classList.remove('playing');
+    }
+}
+
+/* ===== Core controls (native playbackRate only) ===== */
+function onSpeedChange(i, val) {
+    const speed = Math.max(1.0, Math.min(maxSpeed, parseFloat(val)));
+    const vs = ensureVideoState(i);
+    vs.speed = speed;
+
+    const vid = document.getElementById(`video-0`);
+    if (vid) {
+        try {
+            vid.playbackRate = speed;
+            vid.defaultPlaybackRate = speed;
+        } catch (e) {
+            console.error('Failed to set playback rate:', e);
+            showSpeedWarning(i);
+        }
+    }
+
+    // Don't autosave on slider change anymore - only on input change
+}
+
+function showSpeedWarning(i) {
+    const warning = document.getElementById(`speed-warning-0`);
+    if (warning) {
+        warning.style.display = 'block';
+        setTimeout(() => { warning.style.display = 'none'; }, 3000);
+    }
+}
+
+async function togglePlay(i) {
+    const vid = document.getElementById(`video-0`);
+    const vs  = ensureVideoState(i);
+    if (!vid) return;
+
+    try { 
+        vid.playbackRate = vs.speed; 
+        vid.defaultPlaybackRate = vs.speed; 
+    } catch (e) {
+        console.error('Failed to set playback rate:', e);
+    }
+
+    if (!vs.isPlaying) {
+        try {
+            await vid.play();
+            vs.isPlaying = true;
+            setPlayButton(i, true);
+        } catch (e) {
+            console.error('play() failed:', e);
+            alert('Unable to play video. Please try again or check browser permissions.');
+        }
+    } else {
+        try { vid.pause(); } catch (_e) {}
+        vs.isPlaying = false;
+        setPlayButton(i, false);
+    }
+}
+
+function restartVideo(i) {
+    const vid = document.getElementById(`video-0`);
+    const vs  = ensureVideoState(i);
+    if (!vid) return;
+    try { 
+        vid.pause(); 
+        vid.currentTime = 0;
+    } catch (_e) {}
+    vs.isPlaying = false;
+    setPlayButton(i, false);
+}
+
+function setupTrial(i) {
+    // --- Update header text ---
+    const titleEl = document.getElementById(`trial-title-0`);
+    if (titleEl) titleEl.textContent = `Video ${i + 1} of ${trials.length}`;
+
+    // Setup video, etc.
+    const nextBtn = document.getElementById(`next-btn-0`);
+    if(nextBtn) {
+        nextBtn.onclick = () => nextTrial(i);
+    }
+
+    const prevBtn = document.getElementById(`prev-btn-0`);
+    if(prevBtn) {
+        prevBtn.onclick = () => prevTrial(i);
+    }
+
+    const doneBtn = document.getElementById(`done-btn-0`);
+    if (doneBtn) {
+        doneBtn.onclick = () => markDone(i);
+    }
+
+    // Play/Pause button
+    const playBtn = document.getElementById(`play-btn-0`);
+    if (playBtn) playBtn.onclick = () => togglePlay(i);
+
+    // Restart button
+    const restartBtn = document.getElementById(`restart-btn-0`);
+    if (restartBtn) restartBtn.onclick = () => restartVideo(i);
+
+    // Speed slider
+    const speed_slider = document.getElementById(`speed-slider-0`);
+    if (speed_slider) speed_slider.oninput = (e) => onSpeedChange(i, e.target.value);
+
+    const vid = document.getElementById(`video-0`);
+    vid.src = `static/game_videos/${trials[i].video_path}`;
+    vid.load();
+
+    if (vid) {
+        vid.controls = false;
+        
+        // Error handling
+        vid.onerror = () => {
+            console.error(`Failed to load video: ${trials[i].video_path}`);
+            const errorDiv = document.getElementById(`video-error-0`);
+            if (errorDiv) errorDiv.style.display = 'block';
+            vid.style.display = 'none';
+        };
+        
+        // Event handlers
+        vid.onplay = () => { 
+            ensureVideoState(i).isPlaying = true;  
+            setPlayButton(i, true);  
+        };
+        vid.onpause = () => { 
+            ensureVideoState(i).isPlaying = false; 
+            setPlayButton(i, false); 
+        };
+    }
+
+    // Update slider max based on browser
+    const slider = document.getElementById(`speed-slider-0`);
+    if (slider) {
+        slider.max = maxSpeed.toFixed(1);
+    }
+
+    const vs = ensureVideoState(i);
+    
+    // Restore slider position (for preview)
+    const savedSliderSpeed = vs.speed ?? 1.0;
+    vs.speed = Math.max(1.0, Math.min(maxSpeed, parseFloat(savedSliderSpeed) || 1.0));
+
+    if (slider) slider.value = vs.speed.toFixed(1);
+    if (vid) {
+        try { 
+            vid.playbackRate = vs.speed; 
+            vid.defaultPlaybackRate = vs.speed; 
+        } catch (_e) {}
+    }
+
+    setPlayButton(i, ensureVideoState(i).isPlaying);
+}
+
+/* ===== Decisions (toggle-able) ===== */
+function markDone(i) { 
+    // Example: get actual and estimated speed
+    const actualSpeed = parseFloat(trials[i].true_speed).toFixed(2);
+
+    // Get slider value
+    const sliderValue = parseFloat(document.getElementById(`speed-slider-0`).value);
+
+    // Compute inverse and format to two decimals
+    const estimatedSpeed = (1 / sliderValue).toFixed(2);
+
+    // Example: get actual and estimated speed
+    const ourSpeed = parseFloat(trials[i].our_speed).toFixed(2);
+
+    // Fill overlay text
+    const textEl = document.getElementById("overlay-text");
+    textEl.innerHTML = `
+        <p class="overlay-line">
+            <span class="label">This video's playback speed is:</span>
+            <span class="value">${actualSpeed}</span>
+        </p>
+        <p class="overlay-line">
+            <span class="label">Your estimation is:</span>
+            <span class="value">${estimatedSpeed}</span>
+        </p>
+        <p class="overlay-line">
+            <span class="label">Our model's estimation is:</span>
+            <span class="value">${ourSpeed}</span>
+        </p>
+    `;
+
+    // Show overlay
+    document.getElementById("result-overlay").style.display = "flex";
+
+    const overlay = document.getElementById("result-overlay");
+    overlay.style.display = "flex";
+
+    overlay.onclick = function(event) {
+        if (event.target === overlay) {
+            closeOverlay();
+        }
+    }
+}
+
+function closeOverlay() {
+    document.getElementById("result-overlay").style.display = "none";
+}
+
+/* ===== Navigation ===== */
+function leaveTrial(i) {
+    const vid = document.getElementById(`video-0`);
+    if (vid) {
+        try {
+            // const speed = Math.max(1.0, Math.min(maxSpeed, parseFloat(1.0)));
+            // const vs = ensureVideoState(0);
+            // vs.speed = speed;
+
+            vid.pause(); 
+            vid.currentTime = 0;  // Reset to beginning
+            vid.load();  // Release resources
+        } catch (_e) {}
+    }
+    ensureVideoState(i).isPlaying = false;
+    setPlayButton(i, false);
+    const panel = document.getElementById(`trial-0`);
+    if (panel) panel.style.display = 'none';
+}
+
+function enterTrial(i) {
+    current = i;
+    const panel = document.getElementById(`trial-0`);
+    if (panel) panel.style.display = 'block';
+    setupTrial(i);
+}
+
+function prevTrial(i) {
+    if (i <= 0) return;
+    leaveTrial(i);
+    enterTrial(i-1);
+}
+
+function nextTrial(i) {    
+    leaveTrial(i);
+    if (i < totalTrials-1) {
+        enterTrial(i+1);
+    } else {
+        showCompletion();
+    }
+
+    const vid = document.getElementById(`video-0`);
+}
+
+/* ===== Completion ===== */
+function showCompletion() {
+    const curPanel = document.getElementById(`trial-${current}`);
+    if (curPanel) curPanel.style.display = 'none';
+    const comp = document.getElementById('completion');
+    if (comp) comp.style.display = 'block';
+
+    const sum = document.getElementById('completion-summary');
+    if (sum) {
+        sum.innerHTML = `
+            <p><strong>Total trials:</strong> ${totalTrials}</p>
+        `;
+    }
+}
+
+/* ===== Start / Resume / Save ===== */
+function startStudy() {
+    const inst = document.getElementById('instructions');
+    if (inst) inst.style.display = 'none';
+    enterTrial(0);
+}
+
+/* ===== Boot ===== */
+window.addEventListener('load', () => {
+    initVideoStates();  // Initialize all video states upfront
+
+    // Set browser-specific information
+    const browserNote = document.getElementById('browser-note');
+    if (browserNote) {
+        if (maxSpeed === 2.0) {
+            browserNote.innerHTML = '<strong>Note:</strong> Safari detected. Maximum playback speed limited to 2.0×.';
+        } else {
+            browserNote.innerHTML = '<strong>Note:</strong> Your browser supports playback speeds up to ' + maxSpeed + '×.';
+        }
+    }
+    
+    const maxSpeedDisplay = document.getElementById('max-speed-display');
+    if (maxSpeedDisplay) {
+        maxSpeedDisplay.textContent = maxSpeed.toFixed(1) + '×';
+    }
+});
+</script>
+</body>
+</html>
