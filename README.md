@@ -1,4 +1,4 @@
-# Seeing Fast and Slow: Learning the Flow of Time in Videos
+# [ECCV 2026] Seeing Fast and Slow: Learning the Flow of Time in Videos
 
 <p align="center">
   <a href=""><b>Paper (Coming soon)</b></a> &nbsp;|&nbsp;
@@ -24,11 +24,3 @@ This project explores how to **perceive and manipulate the flow of time** in vid
 Together, these capabilities highlight fine-grained temporal perception alongside controllable video generation.
 
 We also introduce **SloMo-44K**, the largest generic slow-motion video dataset to date. It consists of **44,632** slow-motion clips sourced from YouTube, Vimeo, and Flickr, covering a wide variety of scenarios and motions recorded with high-speed cameras.
-
-## 📋 TODO
-
-- [ ] Release SloMo-44K
-- [ ] Speed-change Detection Code
-- [ ] Video Speed Estimation Code
-- [ ] Extreme Temporal Super-resolution Code
-- [ ] Speed-conditioned Video Generation Code
